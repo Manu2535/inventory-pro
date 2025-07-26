@@ -1,12 +1,15 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import { Routes } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { ProductListComponent } from './pages/product-list/product-list';
 
-import { routes } from './app.routes';
+const routes: Routes = [
+  { path: '', component: ProductListComponent },
+];
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)
-  ]
+  providers: [provideRouter(routes)],
 };
+
+
+
